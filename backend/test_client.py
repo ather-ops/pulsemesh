@@ -1,9 +1,30 @@
-from api_client import fetch_url
+from api_client import fetch_url, fetch_multiple
 import asyncio
+import time
 async def main():
 
-    url1 = "https://httpbin.org/json"
-    result1 = await fetch_url(url1)
-    print(result1)
-if __name__ == "__main__":
-    asyncio.run(main())
+    urls=[
+        "https://jsonplaceholder.typicode.com/todos/1",
+        "https://httpbin.org/json",
+        "https://jsonplaceholder.typicode.com/todos/2"
+    ]
+
+    start = time.perf_counter()
+    """
+    result1 = await asyncio.gather(fetch_url(urls[0]))
+    result2 = await asyncio.gather(fetch_url(urls[1]))
+    end = time.perf_counter()
+
+    result = await asyncio.gather(
+        *(fetch_url(url) for url in urls)
+    )
+
+    end = time.perf_counter()
+    print(result)
+    print(f"Total time :{(end - start):.2f}") """
+
+    result = await fetch_multiple(urls)
+    end = time.perf_counter()
+    print(result)
+    print(f"Total Time :{(end - start):.2f}")
+asyncio.run(main())
