@@ -5,8 +5,9 @@ async def main():
 
     urls=[
         "https://jsonplaceholder.typicode.com/todos/1",
-        "https://httpbin.org/json",
-        "https://jsonplaceholder.typicode.com/todos/2"
+         "https://httpbin.org/delay/5",
+        "https://jsonplaceholder.typicode.com/todos/2",
+        "https://jsonplaceholder.typicode.com/does-not-exist"
     ]
 
     start = time.perf_counter()
