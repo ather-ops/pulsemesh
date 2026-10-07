@@ -38,18 +38,20 @@ async def fetch_multiple(urls):
         *(fetch_url(url) for url in urls)
     )
     return response
-
-# Aggregate function
+# Aggreagte function
 def aggregate_results(response):
     total = len(response)
-
     successful = 0
     failed = 0
-
     for result in response:
         if result["success"]:
             successful += 1
         else:
             failed += 1
 
-    return total, successful, failed
+    return {
+        "total": total,
+        "successful": successful,
+        "failed": failed,
+        "results": response
+    }
