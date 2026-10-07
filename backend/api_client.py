@@ -11,13 +11,26 @@ async def fetch_url(url):
                     response_status = response.status
                     if response_status != 200:
                         return {
-                        "error": "Not Found",
-                        "status": response_status
+                        "success":False,
+                        "status": response_status,
+                        "data":None,
+                        "error":"HTTP request failed"
                          }
-                    return await response.json()
+                    data = await response.json()
+                    return {
+                        "success":True,
+                         "status":response_status,
+                         "data":data,
+                         "error":None
+                    }
+
         except asyncio.TimeoutError:
            print(f"Attempt {attempt+1} failed :Timeout")
-    return {"error":"Request timeout after 3 attempts"}
+    return {
+        "success":False,
+        "status":None,
+        "data":None,
+        "error":"Request timeout after 3 attempts"}
 
 # fetch multiple url
 async def fetch_multiple(urls):
@@ -25,3 +38,18 @@ async def fetch_multiple(urls):
         *(fetch_url(url) for url in urls)
     )
     return response
+
+# Aggregate function
+def aggregate_results(response):
+    total = len(response)
+
+    successful = 0
+    failed = 0
+
+    for result in response:
+        if result["success"]:
+            successful += 1
+        else:
+            failed += 1
+
+    return total, successful, failed

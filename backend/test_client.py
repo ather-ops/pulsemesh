@@ -1,4 +1,4 @@
-from api_client import fetch_url, fetch_multiple
+from api_client import fetch_url, fetch_multiple,aggregate_results
 import asyncio
 import time
 async def main():
@@ -25,7 +25,9 @@ async def main():
     print(f"Total time :{(end - start):.2f}") """
 
     result = await fetch_multiple(urls)
+    summary = aggregate_results(result)
     end = time.perf_counter()
     print(result)
     print(f"Total Time :{(end - start):.2f}")
+    print("Summary :",summary)
 asyncio.run(main())
