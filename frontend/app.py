@@ -5,18 +5,18 @@ import os
 # Backend URL configuration
 API_BASE_URL = os.getenv(
     "PULSEMESH_API_URL",
-    "http://127.0.0.1:8000"
+    "https://pulse-ai-xkbk.onrender.com"
 ).rstrip("/")
 
 # Page configuration
 st.set_page_config(
-    page_title="PulseMesh",
+    page_title="Pulse ai",
     page_icon="⚡",
     layout="wide"
 )
 
 # App header
-st.title("⚡ PulseMesh")
+st.title("⚡ Pulse ai")
 st.subheader("Async Multi-API Intelligence Engine")
 st.write(
     "Analyze multiple APIs concurrently and get a unified result."
@@ -37,7 +37,7 @@ if st.button("Analyze URLs"):
         url_list = urls.split()
 
         try:
-            with st.spinner("PulseMesh is analyzing your APIs..."):
+            with st.spinner("Pulse is analyzing your apis..."):
                 response = requests.post(
                     f"{API_BASE_URL}/analyze",
                     json={"urls": url_list},
@@ -80,7 +80,7 @@ if st.button("Analyze URLs"):
 
         except requests.exceptions.ConnectionError:
             st.error(
-                "Could not connect to the PulseMesh backend. "
+                "Could not connect to the Pulse ai backend. "
                 "Make sure FastAPI is running or the deployed backend "
                 "URL is configured correctly."
             )
