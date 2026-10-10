@@ -1,20 +1,4 @@
-<p align="center">
-  <img src="assets/pulse%20ai%20cover.png" alt="Pulsh AI - Async Multi-API Intelligence Engine" width="100%">
-</p>
-
-<h3 align="center">Async Multi-API Intelligence Engine</h3>
-
-<p align="center">
-  Send requests to many APIs at once and get one unified result.
-</p>
-
-<p align="center">
-  <b><a href="https://pulsh-mesh.streamlit.app/">Open the Live App</a></b>
-  &nbsp;|&nbsp;
-  <a href="https://pulse-ai-xkbk.onrender.com/docs">API Docs</a>
-</p>
-
----
+<p align="center"> <img src="https://raw.githubusercontent.com/ather-ops/pulsemesh/main/assets/pulsh%20ai%20cover.png" alt="Pulsh AI - Async Multi-API Intelligence Engine" width="100%"> </p> <h3 align="center">Async Multi-API Intelligence Engine</h3> <p align="center"> Send requests to many APIs at once and get one unified result. </p> <p align="center"> <b><a href="https://pulsh-mesh.streamlit.app/">Open the Live App</a></b> &nbsp;|&nbsp; <a href="https://pulse-ai-xkbk.onrender.com/docs">API Docs</a> </p>
 
 ## Overview
 
